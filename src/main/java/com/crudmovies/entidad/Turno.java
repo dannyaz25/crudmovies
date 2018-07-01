@@ -1,7 +1,11 @@
 package com.crudmovies.entidad;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 @Entity
 public class Turno {
@@ -18,7 +22,8 @@ public class Turno {
   public void setId(Integer id) {
     this.id = id;
   }
-
+  @Temporal(TemporalType.TIME)
+  @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
   public LocalTime getHora() {
     return hora;
   }

@@ -22,14 +22,14 @@
                 <th>Eliminar</th>
             </tr>
             <tr th:each="turno : ${turnos}">
-                <td th:text="${turno.id}"><a href="/product/${pelicula.id}">Id</a></td>
+                <td th:text="${turno.id}"><a href="/product/${turno.id}">Id</a></td>
 
-                <td th:text="${turno.hora}">Turno</td>
+                <td th:text="${turno.getTimeStartAsString()}">Turno</td>
                 <td th:if="${turno.estado}==true" th:text="Activo">Estado</td>
                 <td th:if="${turno.estado}==false" th:text="Inactivo">Estado</td>
-                <td><a th:href="${ '/pelicula/' + turno.id}">Ver</a></td>
-                <td><a th:href="${'/pelicula/edit/' + turno.id}">Editar</a></td>
-                <td><a th:href="${'/pelicula/delete/' + turno.id}">Eliminar</a></td>
+                <td><a th:href="${ '/turno/' + turno.id}">Ver</a></td>
+                <td><a th:href="${'/turno/edit/' + turno.id}">Editar</a></td>
+                <td><a th:href="${'/turno/delete/' + turno.id}">Eliminar</a></td>
             </tr>
         </table>
 

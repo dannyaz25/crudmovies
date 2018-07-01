@@ -10,7 +10,7 @@
 <div class="container">
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
 
-    <h2>Producto</h2>
+    <h2>Película</h2>
     <div>
         <form class="form-horizontal" th:object="${pelicula}" th:action="@{/upload}" method="post" enctype="multipart/form-data">
             <input type="hidden" th:field="*{id}"/>

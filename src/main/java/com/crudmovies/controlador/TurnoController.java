@@ -20,7 +20,7 @@ public class TurnoController {
     }
     @RequestMapping("turno/{id}")
     public String showturno(@PathVariable Integer id, Model modelo){
-         turnoServicio.getTurnoById(id).ifPresent(o -> modelo.addAttribute("tuno",o));
+         turnoServicio.getTurnoById(id).ifPresent(o -> modelo.addAttribute("turno",o));
         return "turnoshow";
     }
     @RequestMapping("turno/edit/{id}")
@@ -37,11 +37,12 @@ public class TurnoController {
     @RequestMapping(value="turno",method =  RequestMethod.POST)
     public String saveturno(Turno turno){
         turnoServicio.saveTurno(turno);
-        return ":redirect:/turno/"+turno.getId();
+        return "redirect:/turno/"+turno.getId();
+
     }
     @RequestMapping("turno/delete/{id}")
     public String delete(@PathVariable Integer id){
         turnoServicio.deleteTurno(id);
-        return ":redirect:/turno/";
+        return "redirect:/turnos";
     }
 }
