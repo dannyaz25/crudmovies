@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../static/css/bootstrap.min.css"
+          th:href="@{/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+
+    <link href="../../static/css/style.css"
+          th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+
+<div class="container">
+    <div th:fragment="header">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" th:href="@{/}">Inicio</a>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" th:href="@{/peliculas}">Lista Peliculas</a></li>
+                        <li><a href="#" th:href="@{/pelicula/new}">Nueva Pelicula</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" th:href="@{/turnos}">Lista Turnos</a></li>
+                        <li><a href="#" th:href="@{/turno/new}">Nuevo Turno</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    </div>
+</div>
+</body>
+</html>

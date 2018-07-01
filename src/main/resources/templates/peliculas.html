@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>crudmovies.com</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(peliculas)}">
+        <h2>Lista Peliculas</h2>
+        <table class="table table-striped">
+            <tr>
+
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Fecha Publicación</th>
+                <th>Imagen</th>
+                <th>Estado</th>
+                <th>Ver</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+            <tr th:each="pelicula : ${peliculas}">
+                <td th:text="${pelicula.id}"><a href="/product/${pelicula.id}">Id</a></td>
+
+                <td th:text="${pelicula.nombre}">Nombre</td>
+                <td th:text="${#dates.format(pelicula.fecha_publicacion, 'dd-MM-yyyy')}">Fecha Publicación</td>
+                <td th:text="${pelicula.nombre_imagen}">Imagen</td>
+                <td th:if="${pelicula.estado}==true" th:text="Activo">Estado</td>
+                <td th:if="${pelicula.estado}==false" th:text="Inactivo">Estado</td>
+                <td><a th:href="${ '/pelicula/' + pelicula.id}">Ver</a></td>
+                <td><a th:href="${'/pelicula/edit/' + pelicula.id}">Editar</a></td>
+                <td><a th:href="${'/pelicula/delete/' + pelicula.id}">Eliminar</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

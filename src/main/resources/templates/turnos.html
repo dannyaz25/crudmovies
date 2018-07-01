@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>crudmovies.com</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(turnos)}">
+        <h2>Lista Turnos</h2>
+        <table class="table table-striped">
+            <tr>
+
+                <th>Id</th>
+                <th>Turno</th>
+                <th>Estado</th>
+                <th>Ver</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+            <tr th:each="turno : ${turnos}">
+                <td th:text="${turno.id}"><a href="/product/${pelicula.id}">Id</a></td>
+
+                <td th:text="${turno.hora}">Turno</td>
+                <td th:if="${turno.estado}==true" th:text="Activo">Estado</td>
+                <td th:if="${turno.estado}==false" th:text="Inactivo">Estado</td>
+                <td><a th:href="${ '/pelicula/' + turno.id}">Ver</a></td>
+                <td><a th:href="${'/pelicula/edit/' + turno.id}">Editar</a></td>
+                <td><a th:href="${'/pelicula/delete/' + turno.id}">Eliminar</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
