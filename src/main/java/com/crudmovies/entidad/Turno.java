@@ -5,7 +5,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 
 @Entity
 public class Turno {
@@ -27,7 +26,9 @@ public class Turno {
   public LocalTime getHora() {
     return hora;
   }
-
+  public String getTimeStartAsString(){
+      return hora == null ? "" :DateTimeFormatter.ofPattern("hh:mm a").format(hora);
+} 
   public void setHora(LocalTime hora) {
     this.hora = hora;
   }
